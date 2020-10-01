@@ -14,6 +14,11 @@ create_arena(
   funnel_nbins = 5,
   funnel_cutoff = 0.01,
   funnel_factor_threshold = 7,
+  fairness_cutoffs = seq(0.05, 0.95, 0.05),
+  max_points_number = 150,
+  distribution_bins = seq(5, 40, 5),
+  enable_attributes = TRUE,
+  enable_custom_params = TRUE,
   cl = NULL
 )
 }
@@ -36,6 +41,16 @@ in feature importance}
 \item{funnel_cutoff}{Threshold for categorical data. Entries less frequent than specified value will be merged into one category in funnel plot.}
 
 \item{funnel_factor_threshold}{Numeric columns with lower number of unique values than value of this parameter will be treated as factors in funnel plot.}
+
+\item{fairness_cutoffs}{vector of available cutoff levels for fairness panel}
+
+\item{max_points_number}{maximum size of sample to plot scatter plots in variable against another panel}
+
+\item{distribution_bins}{vector of available bins count for histogram}
+
+\item{enable_attributes}{Switch for generating attributes of observations and variables. It is required for custom params. Attributes can increase size of static Arena.}
+
+\item{enable_custom_params}{Switch to allowing user to modify observations and generate plots for them.}
 
 \item{cl}{Cluster used to run parallel computations (Do not work in live Arena)}
 }
